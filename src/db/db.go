@@ -259,7 +259,7 @@ func WriteCsgoFloatSkinToDb(csgofloat []CsgoFloat, db *gorm.DB) {
 	}
 
 	for i := 0; i < len(csgofloat); i++ {
-		db.Select("CsFloatID", "CreatedAt", "Type", "Price", "State", "Seller", "Item", "IsSeller", "MinOfferPrice", "MaxOfferDiscount", "IsWatchlisted", "Watchers").Create(&csgofloat[i])
+		db.Select("CreatedAt", "Type", "Price", "State", "IsSeller", "MinOfferPrice", "MaxOfferDiscount", "IsWatchlisted", "Watchers").Create(&csgofloat[i])
 	}
 }
 
