@@ -244,7 +244,7 @@ func WriteDmarketSkinToDb(dmarket []Dmarket, db *gorm.DB) {
 	}
 
 	for i := 0; i < len(dmarket); i++ {
-		db.Select("MarketHashName", "Currency", "SuggestedPrice", "ItemPage", "MarketPage", "MaxPrice", "MeanPrice", "Quantity", "CreatedAt", "UpdatedAt").Create(&dmarket[i])
+		db.Select("Amount", "ClassID", "Description", "Discount", "Total").Create(&dmarket[i])
 	}
 }
 
@@ -257,7 +257,7 @@ func WriteCsgoFloatSkinToDb(csgofloat []CsgoFloat, db *gorm.DB) {
 	}
 
 	for i := 0; i < len(csgofloat); i++ {
-		db.Select("MarketHashName", "Currency", "SuggestedPrice", "ItemPage", "MarketPage", "MaxPrice", "MeanPrice", "Quantity", "CreatedAt", "UpdatedAt").Create(&csgofloat[i])
+		db.Select("Type", "Price", "State", "Tradable", "ItemName", "WearName", "Description", "Collection", "Badges", "MarketHashName").Create(&csgofloat[i])
 	}
 }
 
