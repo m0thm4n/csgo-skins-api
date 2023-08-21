@@ -287,7 +287,7 @@ func CompareRequestToSkinsDB(db *gorm.DB, element *Request) ([]string, []float64
 	//        fmt.Println(requests)
 	//
 	//        for _, element := range requests {
-	_ = db.Table("skinports").Select([]string{"market_hash_name", "currency", "suggested_price", "item_page", "market_page", "max_price", "mean_price", "quantity", "created_at", "updated_at"}).Scan(&skinportSkins)
+	_ = db.Table("skinport").Select([]string{"market_hash_name", "currency", "suggested_price", "item_page", "market_page", "max_price", "mean_price", "quantity", "created_at", "updated_at"}).Scan(&skinportSkins)
 	_ = db.Table("csfloat").Select([]string{"type", "price", "state", "tradable", "item_name", "wear_name", "description", "collection", "badges", "market_hash_name"}).Scan(&csgoFloatSkins)
 	_ = db.Table("dmarket").Select([]string{"amount", "classId", "description", "discount", "total"}).Scan(&dmarketSkins)
 
