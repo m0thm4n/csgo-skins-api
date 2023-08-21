@@ -47,6 +47,7 @@ type Skinport struct {
 }
 
 type Dmarket struct {
+	ID      uint   `gorm:"primaryKey"`
 	Cursor  string `json:"cursor"`
 	Objects []struct {
 		Amount      int    `json:"amount"`
@@ -147,7 +148,8 @@ type Dmarket struct {
 }
 
 type CsgoFloat struct {
-	ID        string    `json:"id"`
+	ID        uint      `gorm:"primaryKey"`
+	CsFloatID string    `json:"id"`
 	CreatedAt time.Time `json:"created_at"`
 	Type      string    `json:"type"`
 	Price     int       `json:"price"`
@@ -257,7 +259,7 @@ func WriteCsgoFloatSkinToDb(csgofloat []CsgoFloat, db *gorm.DB) {
 	}
 
 	for i := 0; i < len(csgofloat); i++ {
-		db.Select("CreatedAt", "Type", "Price", "State", "Seller", "Item", "IsSeller", "MinOfferPrice", "MaxOfferDiscount", "IsWatchlisted", "Watchers").Create(&csgofloat[i])
+		db.Select("CsFloatID", "CreatedAt", "Type", "Price", "State", "Seller", "Item", "IsSeller", "MinOfferPrice", "MaxOfferDiscount", "IsWatchlisted", "Watchers").Create(&csgofloat[i])
 	}
 }
 
