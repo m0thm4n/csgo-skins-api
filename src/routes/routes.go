@@ -12,7 +12,7 @@ func SetupRouter() {
 
 	r.POST("/skinport/add", api.AddSkinportSkin)
 	r.POST("/csfloat/add", api.AddCSFloatSkin)
-	r.POST("/dmarket/add", api.AddDMarketSkin)
+	// r.POST("/dmarket/add", api.AddDMarketSkin)
 	r.POST("/request/add", api.AddRequest)
 	r.POST("/compare", api.CompareRequestToSkins)
 
