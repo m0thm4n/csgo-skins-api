@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "go",
+            "name": "CS Skin Watcher API",
+            "goExecPath": "go",
+            "buildParams": [],
+        },
+
+    ]
+}
