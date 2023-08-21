@@ -251,7 +251,7 @@ func WriteDmarketSkinToDb(dmarket []Dmarket, db *gorm.DB) {
 func WriteCsgoFloatSkinToDb(csgofloat []CsgoFloat, db *gorm.DB) {
 	fmt.Println("Connected to DB.")
 
-	if !db.Migrator().HasTable("dmarket") {
+	if !db.Migrator().HasTable("csfloat") {
 		db.Migrator().CreateTable(&CsgoFloat{})
 		fmt.Println("Added table")
 	}
@@ -288,7 +288,7 @@ func CompareRequestToSkinsDB(db *gorm.DB, element *Request) ([]string, []float64
 	//
 	//        for _, element := range requests {
 	_ = db.Table("skinports").Select([]string{"market_hash_name", "currency", "suggested_price", "item_page", "market_page", "max_price", "mean_price", "quantity", "created_at", "updated_at"}).Scan(&skinportSkins)
-	_ = db.Table("csgofloat").Select([]string{"type", "price", "state", "tradable", "item_name", "wear_name", "description", "collection", "badges", "market_hash_name"}).Scan(&csgoFloatSkins)
+	_ = db.Table("csfloat").Select([]string{"type", "price", "state", "tradable", "item_name", "wear_name", "description", "collection", "badges", "market_hash_name"}).Scan(&csgoFloatSkins)
 	_ = db.Table("dmarket").Select([]string{"amount", "classId", "description", "discount", "total"}).Scan(&dmarketSkins)
 
 	for _, skinportSkin := range skinportSkins {
