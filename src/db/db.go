@@ -216,7 +216,7 @@ var dmarketSkins []Dmarket
 
 func ConnectToDb() (*gorm.DB, error) {
 	// refer https://github.com/go-sql-driver/mysql#dsn-data-source-name for details
-	dsn := "root:Babycakes15!@tcp(192.168.1.88:3306)/csskins?charset=utf8mb4&parseTime=True&loc=Local"
+	dsn := "root:Babycakes15!@tcp(192.168.1.88:3306)/cs?charset=utf8mb4&parseTime=True&loc=Local"
 	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 
 	return db, err
